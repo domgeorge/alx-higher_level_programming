@@ -1,7 +1,7 @@
 # **0x01. Python - if/else, loops, functions**
 
 ## **Resources**
-####Read or watch:####
+#### Read or watch: ####
 
 * More Control Flow Tools (Read until “4.6. Defining Functions” included)
 * IndentationError
@@ -10,6 +10,4 @@
 * Learn to Program 2 : Looping
 * Pycodestyle – Style Guide for Python Code
 
-   ~~~~
-by Obinna Dominic
-   ~~~~
+By `Obinna Dominic`
