@@ -1,71 +1,40 @@
 #include "lists.h"
+#include <stdio.h>
 
 /**
- * moveback_listint - Func moves a list back
- * @head: Head
- *
- * Return: Ptr to node
- */
-void moveback_listint(listint_t **head)
-{
-	listint_t *prev = NULL;
-	listint_t *new = *head;
-	listint_t *next = NULL;
-
-	while (new)
-	{
-		next = new->next;
-		new->next = prev;
-		prev = new;
-		new = next;
-	}
-
-	*head = prev;
-}
-
-/**
- * is_palindrome - Func checks list is palindrome
- * @head: Head
- *
- * Return: 1 if it is palindrome, 0 if otherwise
+ * is_palindrome - checks if a linked list is a palindrome
+ * @head: double pointer to the head of the linked list
+ * Return: 1 if palindrome, 0 otherwise
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *u = *head, *v = *head, *shrt = *head;
-	listint_t *cpy = NULL;
+	listint_t *slow = *head, *fast = *head;
+	listint_t *prev = NULL, *temp;
 
 	if (*head == NULL || (*head)->next == NULL)
 		return (1);
 
-	while (1)
+	while (fast != NULL && fast->next != NULL)
 	{
-		v = v->next->next;
-		if (!v)
-		{
-			cpy = u->next;
-			break;
-		}
-		if (!v->next)
-		{
-			cpy = u->next->next;
-			break;
-		}
-		u = u->next;
-	}
-	moveback_listint(&cpy);
+		fast = fast->next->next;
 
-	while (cpy && shrt)
+		temp = slow->next;
+		slow->next = prev;
+		prev = slow;
+		slow = temp;
+	}
+
+	if (fast != NULL)
+		slow = slow->next;
+
+	while (prev != NULL && slow != NULL)
 	{
-		if (shrt->n == cpy->n)
-		{
-			cpy = cpy->next;
-			shrt = shrt->next;
-		}
-		else
+		if (prev->n != slow->n)
 			return (0);
+
+		prev = prev->next;
+		slow = slow->next;
 	}
 
-	if (!cpy)
-		return (1);
-	return (0);
+	return (1);
 }
