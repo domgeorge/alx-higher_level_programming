@@ -44,7 +44,7 @@ class SinglyLinkedList:
         """new node insertion to the SinglyLinkedList"""
         i = Node(value)
         if self.__head is None:
-            u.next_node = None
+            i.next_node = None
             self.__head = i
         elif self.__head.data > value:
             i.next_node = self.__head
