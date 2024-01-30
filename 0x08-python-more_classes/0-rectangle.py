@@ -2,4 +2,5 @@
     """Empty class Rectangle defines rectangle"""
 
     class Rectangle:
+        """Empty rectangle"""
         pass
