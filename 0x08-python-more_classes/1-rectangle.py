@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 """class Rectangle that defines a rectangle"""
 
+
 class Rectangle:
     """class rectangle"""
     def __init__(self, width=0, height=0):
-        """"width and height"""
+        """width and height"""
         if not isinstance(width, int):
             raise TypeError("width must be an integer")
         if width < 0:
@@ -13,8 +14,8 @@ class Rectangle:
             raise TypeError("height must be an integer")
         if height < 0:
             raise ValueError("height must be >= 0")
-        self.width = width
-        self.height = height
+        self.__width = width
+        self.__height = height
 
     @property
     def width(self):
