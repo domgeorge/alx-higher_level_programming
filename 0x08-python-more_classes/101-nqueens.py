@@ -4,7 +4,7 @@
 import sys
 
 
-def init_chess(n):
+def init_chess(j):
     """Initialize n chessboard"""
     position = []
     [position.append([]) for i in range(j)]
